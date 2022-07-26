@@ -6,8 +6,10 @@ services:
     entrypoint: ss-local -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -m $METHOD -l 1080 -b 0.0.0.0
     env_file:
       - .env
+    restart : always
   polipo:
     image: lsiocommunity/polipo
+    restart : always
     depends_on:
       - shadowsocks
     ports:
